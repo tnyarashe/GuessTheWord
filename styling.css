@@ -1,0 +1,9 @@
+body {
+    background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cbc.ca%2Fradio%2Fsunday%2Fthe-sunday-magazine-for-may-1-2022-1.6429901%2Fpuzzles-not-only-make-you-smarter-they-help-bridge-the-political-divide-new-book-says-1.6464249&psig=AOvVaw199gworQKMWJQctz_kV4Db&ust=1711458733978000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCMCHr-G-j4UDFQAAAAAdAAAAABAE);
+}
+
+.main {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
