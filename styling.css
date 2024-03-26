@@ -1,9 +1,33 @@
 body {
-    background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cbc.ca%2Fradio%2Fsunday%2Fthe-sunday-magazine-for-may-1-2022-1.6429901%2Fpuzzles-not-only-make-you-smarter-they-help-bridge-the-political-divide-new-book-says-1.6464249&psig=AOvVaw199gworQKMWJQctz_kV4Db&ust=1711458733978000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCMCHr-G-j4UDFQAAAAAdAAAAABAE);
+    background-image: url("./images/cloud_field_fog_grass_landscape_4k_hd_nature.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: auto; 
+} 
+
+img.bg {
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .main {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: x-large; 
+    color: whitesmoke; 
+    background-color: rgb(53, 101, 163); 
+    box-shadow: 0 2px 5px grey; 
+    padding: 0% 5% 1% 5%;
+    position: relative;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    text-align: center; 
+    border-radius: 5px 0;
 }
