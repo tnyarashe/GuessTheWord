@@ -1,56 +1,60 @@
+//declare variables
 const scrambledWord = document.getElementById("scrambledWord")
 const userText = document.getElementById("UserInputText")
-const guess = document.getElementById("guessBtn")
+const nextWord = document.getElementById("nxtWrd")
+const checkWord = document.getElementById("chckWrd")
+const results = document.getElementById("result")
 
-const words = ["CSS", "CODE", "BASH", "FUNCTION", "VARIABLE", "JAVASCRIPT"]
-
-// let newArray = []
-
-// let score = 0;
-// let streak = 0;
-// let lives = 3;
-// let penalty = -1;
+//declare array
+const words = ["css", "code", "bash", "function", "variable", "javascript"]
 
 
-
-function shuffleArray(words) {
-    for (var i = words.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = words[i];
-        words[i] = words[j];
-        words[j] = temp;
+//declare shuffle array function
+function shuffleArray(shwords) {
+    for (let i = shwords.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        let temp = shwords[i];
+        shwords[i] = shwords[j];
+        shwords[j] = temp;
     }
-    return words
+    return shwords
 }
 
-document.addEventListener('DOMContentLoaded', ()=>{
-    scrambledWord.textContent = shuffleArray(words)[0]
+//declare check function
+function check () {
+   const sortedScrambledWord = scrambledWord.textContent.split("").sort().join("")
+   const sortedUserWords = userText.value.split("").sort().join("").toLowerCase()
+
+    if(sortedScrambledWord === sortedUserWords) {
+        results.textContent = "Correct!"
+    }
+    else{
+        results.textContent = "Incorrect! Try again."
+    }
+}
+
+//declare shuffle word function
+function shuffleWord(str) { 
+    scrmbldW = Array.from(str)
+    for (let i = 0; i < scrmbldW.length - 1; i++) { 
+        let j = Math.floor(Math.random() * scrmbldW.length); 
+        // Swap letters 
+        let temp = scrmbldW[i]; 
+        scrmbldW[i] = scrmbldW[j]; 
+        scrmbldW[j] = temp; 
+    } 
+    return scrmbldW.join("");
+}
+
+//display shuffled word when page loads
+document.addEventListener('DOMContentLoaded', ()=> {
+    scrambledWord.textContent = shuffleWord(shuffleArray(words)[0])
 })
 
-// function shuffleWord(str) { 
-//     words = Array.from(str); 
-//     for (let i = 0; i < strArray.length - 1; i++) { 
-//         let j = Math.floor(Math.random() * strArray.length); 
-//         // Swap letters 
-//         let temp = strArray[i]; 
-//         strArray[i] = strArray[j]; 
-//         strArray[j] = temp; 
-//     } 
-//     return strArray.join(" ");
-// } 
+//declare next word button
+nextWord.addEventListener("click", ()=> {
+    scrambledWord.textContent = shuffleWord(shuffleArray(words)[0])
+})
 
-// guess.addEventListener ("click", ()=>{
-// })
-
-// next.addEventListener ("click", ()=>{
-// })
-
-// function refresh() { 
-//     index = Math.floor(Math.random() * 6);
-//     displayWord = words[index];
-//     scrambleWord.innerText = shuffle(displayWord).toUpperCase();
-//     document.getElementById("output").innerText = "Result:";
-// } 
-  
-// //Function call when page load for first time 
-// refresh();
+//declare check word button
+checkWord.addEventListener("click", check)

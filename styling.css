@@ -6,7 +6,7 @@ body {
     flex-direction: column; 
     justify-content: center; 
     align-items: center; 
-    min-height: auto; 
+    min-height: 80vh; 
 } 
 
 img.bg {
@@ -21,13 +21,38 @@ img.bg {
 .main {
     font-size: x-large; 
     color: whitesmoke; 
-    background-color: rgb(53, 101, 163); 
+    background-color: hwb(210 30% 22%);
+    /* background-color: ; */
     box-shadow: 0 2px 5px grey; 
     padding: 0% 5% 1% 5%;
     position: relative;
     margin-top: auto;
     margin-bottom: auto;
 
-    text-align: center; 
-    border-radius: 5px 0;
+    text-align: center;
+    border-radius: 20px;
+}
+
+input {
+    height: 30px;
+    border-radius: 50px;
+}
+
+.myButtons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 10px;
+    /* width: 50; */
+}
+
+.check {
+    height: 30px;
+    border-radius: 50px;
+    display: block;
+}
+
+.next {
+    height: 30px;
+    border-radius: 50px;
+    display: block;
 }

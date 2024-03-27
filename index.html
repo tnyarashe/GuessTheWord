@@ -11,10 +11,12 @@
     <div class="main">
         <h1>GUESS THE WORD</h1>
         <h2 id="scrambledWord"></h2>
+        <h4 id="result"></h4>
         <input type="text" id="UserInputText" placeholder="GUESS THE WORD">
-        <button id="guessBtn" onclick="guess()">Check</button>
-        <button id="newWrdBtn">Next Word</button>
-        
+        <div class="myButtons">
+            <button id="chckWrd" class="check">Check</button>
+            <button id="nxtWrd" class="next">Next Word</button>
+        </div>
     </div>
     <script src="behaviour.js"></script>
 </body>
