@@ -4,10 +4,19 @@ const userText = document.getElementById("UserInputText")
 const nextWord = document.getElementById("nxtWrd")
 const checkWord = document.getElementById("chckWrd")
 const results = document.getElementById("result")
+const newGame = document.getElementById("newGameBtn")
+
+const scoreVariable = document.getElementById("score")
+const livesVariable = document.getElementById("lives")
+const streakVariable = document.getElementById("streak")
 
 //declare array
 const words = ["css", "code", "bash", "function", "variable", "javascript"]
 
+//declare points variables
+let score = 0;
+let lives = 3;
+let streak = 0;
 
 //declare shuffle array function
 function shuffleArray(shwords) {
@@ -18,19 +27,6 @@ function shuffleArray(shwords) {
         shwords[j] = temp;
     }
     return shwords
-}
-
-//declare check function
-function check () {
-   const sortedScrambledWord = scrambledWord.textContent.split("").sort().join("")
-   const sortedUserWords = userText.value.split("").sort().join("").toLowerCase()
-
-    if(sortedScrambledWord === sortedUserWords) {
-        results.textContent = "Correct!"
-    }
-    else{
-        results.textContent = "Incorrect! Try again."
-    }
 }
 
 //declare shuffle word function
@@ -46,6 +42,41 @@ function shuffleWord(str) {
     return scrmbldW.join("");
 }
 
+//declare check function
+function check () {
+    let sortedScrambledWord = scrambledWord.textContent.split("").sort().join("")
+    let sortedUserWords = userText.value.split("").sort().join("").toLowerCase()
+
+    if(sortedScrambledWord === sortedUserWords) {
+        results.textContent = "Correct!"
+        score += 5
+        scoreVariable.textContent = "Score: " + score
+        setTimeout(function() {
+            results.textContent = ""
+            scrambledWord.textContent = shuffleWord(shuffleArray(words)[0])
+        }, 2500)
+    }
+    else {
+        results.textContent = "Incorrect! Try again."
+        lives--
+        livesVariable.textContent = "Lives: " + lives
+        setTimeout(function(){
+            results.textContent = ""
+            userText.value = ""
+        }, 2500)
+    }
+}
+
+ //declare new game function
+function startOver () {
+     score = 0;
+     lives = 3;
+     streak = 0;
+     scoreVariable.textContent = "Score: " + score
+     livesVariable.textContent = "Lives: " + lives
+     streak.textContent = "Streak: " + streak
+}
+
 //display shuffled word when page loads
 document.addEventListener('DOMContentLoaded', ()=> {
     scrambledWord.textContent = shuffleWord(shuffleArray(words)[0])
@@ -58,3 +89,6 @@ nextWord.addEventListener("click", ()=> {
 
 //declare check word button
 checkWord.addEventListener("click", check)
+
+//declare start new game button
+newGame.addEventListener("click", startOver)
