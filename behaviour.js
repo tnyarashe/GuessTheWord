@@ -5,6 +5,7 @@ const nextWord = document.getElementById("nxtWrd")
 const checkWord = document.getElementById("chckWrd")
 const results = document.getElementById("result")
 const newGame = document.getElementById("newGameBtn")
+const gameOverTitle = document.getElementById("gameOver")
 
 const scoreVariable = document.getElementById("score")
 const livesVariable = document.getElementById("lives")
@@ -57,13 +58,19 @@ function check () {
         }, 2500)
     }
     else {
-        results.textContent = "Incorrect! Try again."
-        lives--
-        livesVariable.textContent = "Lives: " + lives
-        setTimeout(function(){
-            results.textContent = ""
-            userText.value = ""
-        }, 2500)
+        while (lives > 0) {
+            results.textContent = "Incorrect! Try again."
+            setTimeout(function(){
+                results.textContent = ""
+                lives--
+                livesVariable.textContent = "Lives: " + lives
+                userText.value = ""
+            }, 2500)
+            break
+        }
+    }
+    if (lives == 0) {
+        gameOverTitle.textContent = "GAME OVER!"
     }
 }
 
