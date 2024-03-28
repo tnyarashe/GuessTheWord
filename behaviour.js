@@ -55,6 +55,7 @@ function check () {
         setTimeout(function() {
             results.textContent = ""
             scrambledWord.textContent = shuffleWord(shuffleArray(words)[0])
+            userText.value = ""
         }, 2500)
     }
     else {
@@ -81,7 +82,7 @@ function startOver () {
      streak = 0;
      scoreVariable.textContent = "Score: " + score
      livesVariable.textContent = "Lives: " + lives
-     streak.textContent = "Streak: " + streak
+     streakVariable.textContent = "Streak: " + streak
 }
 
 //display shuffled word when page loads
