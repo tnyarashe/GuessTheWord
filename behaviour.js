@@ -7,14 +7,14 @@ const results = document.getElementById("result")
 const newGame = document.getElementById("newGameBtn")
 const gameOverTitle = document.getElementById("gameOver")
 
-const scoreVariable = document.getElementById("score")
-const livesVariable = document.getElementById("lives")
-const streakVariable = document.getElementById("streak")
-
 //declare array
 const words = ["css", "code", "bash", "function", "variable", "javascript"]
 
 //declare points variables
+const scoreVariable = document.getElementById("score")
+const livesVariable = document.getElementById("lives")
+const streakVariable = document.getElementById("streak")
+
 let score = 0;
 let lives = 3;
 let streak = 0;
