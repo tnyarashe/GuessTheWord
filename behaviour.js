@@ -20,14 +20,14 @@ let lives = 3;
 let streak = 0;
 
 //declare shuffle array function
-function shuffleArray(shwords) {
-    for (let i = shwords.length - 1; i > 0; i--) {
+function shuffleArray(str) {
+    for (let i = str.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
-        let temp = shwords[i];
-        shwords[i] = shwords[j];
-        shwords[j] = temp;
+        let temp = str[i];
+        str[i] = str[j];
+        str[j] = temp;
     }
-    return shwords
+    return str
 }
 
 //declare shuffle word function
@@ -58,6 +58,13 @@ function check () {
             userText.value = ""
         }, 2500)
     }
+
+    else if(userText.value === ""){
+        results.textContent = "Please type a word."
+        setTimeout(function(){
+            results.textContent = ""
+        }, 2500)
+    }
     else {
         while (lives > 0) {
             results.textContent = "Incorrect! Try again."
@@ -70,19 +77,20 @@ function check () {
             break
         }
     }
-    if (lives == 0) {
+    if (lives === 0) {
         gameOverTitle.textContent = "GAME OVER!"
     }
 }
 
- //declare new game function
+//declare new game function
 function startOver () {
-     score = 0;
-     lives = 3;
-     streak = 0;
-     scoreVariable.textContent = "Score: " + score
-     livesVariable.textContent = "Lives: " + lives
-     streakVariable.textContent = "Streak: " + streak
+    score = 0;
+    lives = 3;
+    streak = 0;
+    scoreVariable.textContent = "Score: " + score
+    livesVariable.textContent = "Lives: " + lives
+    streakVariable.textContent = "Streak: " + streak
+    gameOverTitle.textContent = ""
 }
 
 //display shuffled word when page loads
