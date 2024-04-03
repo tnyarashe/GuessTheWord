@@ -12,7 +12,7 @@ body {
 h1 {
     font-family: 'Times New Roman', Times, serif;
     font-weight: bolder;
-    color: rgb(158, 43, 87);
+    color: rgb(24, 107, 22);
 }
 img.bg {
     min-width: 1024px;
@@ -77,4 +77,9 @@ input {
 
 ul {
     list-style: none;
+}
+
+#result {
+    color: rgb(255, 0, 34);
+    font-weight: bold;
 }

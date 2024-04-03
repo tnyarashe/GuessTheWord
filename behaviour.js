@@ -8,7 +8,7 @@ const newGame = document.getElementById("newGameBtn")
 const gameOverTitle = document.getElementById("gameOver")
 
 //declare array
-const words = ["css", "code", "bash", "function", "variable", "javascript"]
+const words = ["css", "html", "code", "bash", "function", "variable", "javascript"]
 
 //declare points variables
 const scoreVariable = document.getElementById("score")
@@ -34,8 +34,7 @@ function shuffleArray(str) {
 function shuffleWord(str) { 
     scrmbldW = Array.from(str)
     for (let i = 0; i < scrmbldW.length - 1; i++) { 
-        let j = Math.floor(Math.random() * scrmbldW.length); 
-        // Swap letters 
+        let j = Math.floor(Math.random() * scrmbldW.length);
         let temp = scrmbldW[i]; 
         scrmbldW[i] = scrmbldW[j]; 
         scrmbldW[j] = temp; 
@@ -47,8 +46,10 @@ function shuffleWord(str) {
 function check () {
     let sortedScrambledWord = scrambledWord.textContent.split("").sort().join("")
     let sortedUserWords = userText.value.split("").sort().join("").toLowerCase()
+    const sortAllWords = words.map(element => element.split("").sort().join(""))
 
     if(sortedScrambledWord === sortedUserWords) {
+
         results.textContent = "Correct!"
         score += 5
         scoreVariable.textContent = "Score: " + score
@@ -57,18 +58,24 @@ function check () {
             scrambledWord.textContent = shuffleWord(shuffleArray(words)[0])
             userText.value = ""
         }, 2500)
+
+console.log(sortAllWords.indexOf(sortedUserWords))
+console.log(sortAllWords)
+words.shift()
+      
     }
 
     else if(userText.value === ""){
         results.textContent = "Please type a word."
-        setTimeout(function(){
+        setTimeout(function() {
             results.textContent = ""
         }, 2500)
     }
+
     else {
         while (lives > 0) {
             results.textContent = "Incorrect! Try again."
-            setTimeout(function(){
+            setTimeout(function() {
                 results.textContent = ""
                 lives--
                 livesVariable.textContent = "Lives: " + lives
@@ -77,6 +84,7 @@ function check () {
             break
         }
     }
+
     if (lives === 0) {
         gameOverTitle.textContent = "GAME OVER!"
     }
@@ -89,7 +97,6 @@ function startOver () {
     streak = 0;
     scoreVariable.textContent = "Score: " + score
     livesVariable.textContent = "Lives: " + lives
-    streakVariable.textContent = "Streak: " + streak
     gameOverTitle.textContent = ""
 }
 
