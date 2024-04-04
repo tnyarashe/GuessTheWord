@@ -6,6 +6,7 @@ const checkWord = document.getElementById("chckWrd")
 const results = document.getElementById("result")
 const newGame = document.getElementById("newGameBtn")
 const gameOverTitle = document.getElementById("gameOver")
+const life = document.getElementById("heart")
 
 //declare array
 const words = ["css", "html", "code", "bash", "function", "variable", "javascript"]
@@ -74,11 +75,16 @@ words.shift()
 
     else {
         while (lives > 0) {
+lives--
+
+trackLives()
             results.textContent = "Incorrect! Try again."
             setTimeout(function() {
                 results.textContent = ""
-                lives--
-                livesVariable.textContent = "Lives: " + lives
+                
+                
+                // life.remove()
+                
                 userText.value = ""
             }, 2500)
             break
@@ -96,8 +102,17 @@ function startOver () {
     lives = 3;
     streak = 0;
     scoreVariable.textContent = "Score: " + score
-    livesVariable.textContent = "Lives: " + lives
+    livesVariable.textContent = "Lives: "
+    livesVariable.innerHTML += '<i class="fa-solid fa-heart"></i>'
     gameOverTitle.textContent = ""
+}
+
+function trackLives(){
+    livesVariable.innerHTML = ""
+    livesVariable.textContent = "Lives: "
+    for (i = 0; i < lives; i++ ){
+        livesVariable.innerHTML += '<i class="fa-solid fa-heart"></i>'
+    }
 }
 
 //display shuffled word when page loads
