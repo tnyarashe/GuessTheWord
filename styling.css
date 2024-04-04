@@ -12,7 +12,7 @@ body {
 h1 {
     font-family: 'Times New Roman', Times, serif;
     font-weight: bolder;
-    color: rgb(24, 107, 22);
+    color: rgb(0, 255, 0)
 }
 img.bg {
     min-width: 1024px;
@@ -27,7 +27,7 @@ img.bg {
 .main {
     font-size: x-large; 
     color: rgb(210, 204, 204); 
-    background-color: hwb(221 33% 15%);
+    background-color: hwb(221 33% 15% / 0);
     box-shadow: 0 2px 5px grey;
     border-style: solid;
     padding: 0% 5% 1% 5%;
