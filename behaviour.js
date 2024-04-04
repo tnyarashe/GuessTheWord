@@ -9,7 +9,7 @@ const gameOverTitle = document.getElementById("gameOver")
 const life = document.getElementById("heart")
 
 //declare array
-const words = ["css", "html", "code", "bash", "function", "variable", "javascript"]
+const words = ["css", "html", "code", "bash", "function", "variable", "javascript", "github", "element", "terminal"]
 
 //declare points variables
 const scoreVariable = document.getElementById("score")
@@ -50,7 +50,6 @@ function check () {
     const sortAllWords = words.map(element => element.split("").sort().join(""))
 
     if(sortedScrambledWord === sortedUserWords) {
-
         results.textContent = "Correct!"
         score += 5
         scoreVariable.textContent = "Score: " + score
@@ -63,7 +62,6 @@ function check () {
 console.log(sortAllWords.indexOf(sortedUserWords))
 console.log(sortAllWords)
 words.shift()
-      
     }
 
     else if(userText.value === ""){
@@ -75,36 +73,34 @@ words.shift()
 
     else {
         while (lives > 0) {
-lives--
-
-trackLives()
+            lives--
+            trackLives()
             results.textContent = "Incorrect! Try again."
             setTimeout(function() {
                 results.textContent = ""
-                
-                
-                // life.remove()
-                
                 userText.value = ""
             }, 2500)
             break
         }
     }
-
     if (lives === 0) {
         gameOverTitle.textContent = "GAME OVER!"
+    }
+    if (score === 50) {
+        gameOverTitle.textContent = "YOU WIN! GAME OVER!"
     }
 }
 
 //declare new game function
 function startOver () {
-    score = 0;
-    lives = 3;
-    streak = 0;
-    scoreVariable.textContent = "Score: " + score
-    livesVariable.textContent = "Lives: "
-    livesVariable.innerHTML += '<i class="fa-solid fa-heart"></i>'
-    gameOverTitle.textContent = ""
+    // score = 0;
+    // lives = 3;
+    // streak = 0;
+    // scoreVariable.textContent = "Score: " + score
+    // livesVariable.textContent = "Lives: "
+    // livesVariable.innerHTML += '<i class="fa-solid fa-heart"></i>'
+    // gameOverTitle.textContent = ""
+    location.reload()
 }
 
 function trackLives(){

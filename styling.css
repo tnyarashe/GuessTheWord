@@ -2,6 +2,8 @@ body {
     background-image: url("./images/cloud_field_fog_grass_landscape_4k_hd_nature.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
@@ -79,11 +81,15 @@ input {
     font-weight: bold;
 }
 
+#heart {
+    color: red;
+}
+
 ul {
     list-style: none;
 }
 
 #result {
-    color: rgb(229, 255, 0);
+    color: hsl(0, 100%, 50%);
     font-weight: bold;
 }
